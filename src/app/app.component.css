@@ -1,0 +1,15 @@
+.navbar {
+    background-color: rgb(245, 71, 193) !important;
+}
+
+.collapse {
+    margin-left: 20vw;
+}
+
+.nav-item {
+    margin-right: 2vw;
+}
+
+.nav-link {
+    font-size: 1.4vw;
+}
