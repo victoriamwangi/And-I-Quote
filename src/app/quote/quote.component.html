@@ -6,10 +6,11 @@
                     <p>
                         {{ quote.message }}
                     </p>
-                    <p class="q-name text-center">{{ quote.name }}</p>
+                    <!-- <p class="q-name text-center">{{ quote.name }}</p>
                     <p class="q-date text-center">
                         {{ quote.postDate | date: "shortDate" }}
-                    </p>
+                    </p> -->
+                    <app-quote-details [quote]="quote"></app-quote-details>
                 </div>
             </div>
         </div>
