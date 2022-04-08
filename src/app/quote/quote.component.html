@@ -1,18 +1,22 @@
 <div class="row">
     <div class="col-lg-7 col-md-7">
         <div class="container-fluid quote-container">
-            <div *ngFor="let quote of quotes">
+            <div *ngFor="let quote of quotes; let i = index">
                 <div class="msg shadow">
                     <p>
                         {{ quote.message }}
                     </p>
-                    <!-- <p class="q-name text-center">{{ quote.name }}</p>
-                    <p class="q-date text-center">
-                        {{ quote.postDate | date: "shortDate" }}
-                    </p> -->
-                    <app-quote-details [quote]="quote"></app-quote-details>
+                    <p>~ {{ quote.authorName }}</p>
+                    <button (click)="toggleDetails(i)" class="btn btn-primary">
+            More Details
+          </button>
+
+                    <app-quote-details *ngIf="quote.showName" [quote]="quote"></app-quote-details>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="col-lg-5 col-md-5">
+        <app-quote-form></app-quote-form>
     </div>
 </div>

@@ -1,3 +1,6 @@
 export class Quote {
-constructor(public id: number, public name: string, public message: string, public postDate: Date){}
+  showName : boolean;
+constructor(public id: number, public name: string, public authorName: string, public message: string){
+  this.showName = false;
+}
 }

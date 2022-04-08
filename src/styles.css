@@ -1,6 +1,7 @@
 @import "~bootstrap/dist/css/bootstrap.css";
-:root {
+* {
     --primary: #f547c1;
+    --secondary: #47dbf5;
 }
 
 body {
