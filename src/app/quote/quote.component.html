@@ -1,22 +1,21 @@
 <div class="row">
     <div class="col-lg-7 col-md-7">
-        <div class="container-fluid quote-container">
-            <div *ngFor="let quote of quotes; let i = index">
-                <div class="msg shadow">
-                    <p>
-                        {{ quote.message }}
-                    </p>
-                    <p>~ {{ quote.authorName }}</p>
-                    <button (click)="toggleDetails(i)" class="btn btn-primary">
-            More Details
-          </button>
+        <div class="quote-container" *ngFor="let quote of quotes; let i = index">
+            <div class="msg shadow">
+                <p>{{ quote.message }} ~ {{ quote.authorName }}</p>
 
-                    <app-quote-details *ngIf="quote.showName" [quote]="quote"></app-quote-details>
-                </div>
+                <button (click)="toggleDetails(i)" class="btn btn-primary">
+          More Details
+        </button>
+            </div>
+            <div *ngIf="quote.showName">
+                <app-quote-details [quote]="quote" (isComplete)="deleteQuote($event, i)">
+                </app-quote-details>
             </div>
         </div>
     </div>
     <div class="col-lg-5 col-md-5">
-        <app-quote-form></app-quote-form>
+        <app-quote-form (addQuote)="addNewQuote($event)"></app-quote-form>
     </div>
+    <p *ngIf="quotes.length > 2">You have too many goals</p>
 </div>

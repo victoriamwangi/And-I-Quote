@@ -14,9 +14,28 @@ quotes: Quote[] = [
   new Quote(3, "Morris", "Anonymous", "Sing like no one’s listening, love like you’ve never been hurt, dance like nobody’s watching, and live like it’s heaven on earth.")
 ]
 
-toggleDetails(index: any){
+toggleDetails(index: number){
   this.quotes[index].showName = !this.quotes[index].showName;
 }
+addNewQuote(quote: Quote){
+  let quoteLength = this.quotes.length;
+  quote.id = quoteLength + 1;
+  this.quotes.push(quote);
+
+
+}
+deleteQuote(isComplete: any, index: number){
+  if(isComplete){
+    let toDelete = confirm(`Are you sure you want to delete ${this.quotes[index].name} ?`);
+    if (toDelete){
+      this.quotes.slice(index, 1)
+      alert('tf')
+    }
+  }
+
+}
+
+
   constructor() { }
 
   ngOnInit(): void {
