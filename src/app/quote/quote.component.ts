@@ -42,8 +42,12 @@ deleteQuote(isComplete: any, index: number){
 //   return votes--;
 // }
 
+arr: number[] = this.quotes.map(quote =>quote.votes)
+highest = Math.max(...this.arr);
+
 
   constructor() { }
+
 
   ngOnInit(): void {
   }

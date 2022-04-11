@@ -1,7 +1,11 @@
 <div class="row">
     <div class="col-lg-7 col-md-7">
         <div class="quote-container" *ngFor="let quote of quotes; let i = index">
-            <div *ngIf="quote.id == 1; then highlight; else empty"></div>
+            <div *ngIf="
+          quote.votes == highest && quote.votes > 0;
+          then highlight;
+          else empty
+        "></div>
             <ng-template #highlight>
                 <div appHighlight class="msg shadow">
                     <p>{{ quote.message }} ~ {{ quote.authorName }}</p>
