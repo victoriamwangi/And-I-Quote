@@ -1,13 +1,26 @@
 <div class="row">
     <div class="col-lg-7 col-md-7">
         <div class="quote-container" *ngFor="let quote of quotes; let i = index">
-            <div class="msg shadow">
-                <p>{{ quote.message }} ~ {{ quote.authorName }}</p>
+            <div *ngIf="quote.id == 1; then highlight; else empty"></div>
+            <ng-template #highlight>
+                <div appHighlight class="msg shadow">
+                    <p>{{ quote.message }} ~ {{ quote.authorName }}</p>
 
-                <button (click)="toggleDetails(i)" class="btn btn-primary">
-          More Details
-        </button>
-            </div>
+                    <button (click)="toggleDetails(i)" class="btn btn-primary">
+            More Details
+          </button>
+                </div>
+            </ng-template>
+            <ng-template #empty>
+                <div class="msg shadow">
+                    <p>{{ quote.message }} ~ {{ quote.authorName }}</p>
+
+                    <button (click)="toggleDetails(i)" class="btn btn-primary">
+            More Details
+          </button>
+                </div>
+            </ng-template>
+
             <div *ngIf="quote.showName">
                 <app-quote-details [quote]="quote" (isComplete)="deleteQuote($event, i)">
                 </app-quote-details>
