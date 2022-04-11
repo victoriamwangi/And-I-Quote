@@ -1,16 +1,16 @@
-/* .quote-container {
-    width: 70%;
-    margin: 0 auto;
-    border: 1px solid;
-
-} */
-
 body {
     overflow-x: none !important;
 }
 
+.quote-container {
+    width: 80%;
+    margin-left: 10vw !important;
+    justify-content: center;
+}
+
+.colQuotes {}
+
 .msg {
-    /* height: 7vw; */
     margin-top: 3vw;
     padding: 1vw;
     align-items: center;
