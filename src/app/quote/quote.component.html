@@ -2,31 +2,41 @@
     <div class="col-lg-7 col-md-7">
         <div class="quote-container" *ngFor="let quote of quotes; let i = index">
             <div *ngIf="
-          quote.votes == highest && quote.votes > 0;
+          quote.upVotes == highest && quote.upVotes > 0;
           then highlight;
           else empty
-        "></div>
-            <p>{{ quote.votes }}</p>
+        ">
+                <button * ngIf="quote.votes" class="btn btn-primary" (click)="voteIncrement(i)">
+          UPVOTE
+        </button>
+            </div>
 
             <ng-template #highlight>
                 <div appHighlight class="msg shadow">
                     <p>{{ quote.message }} ~ {{ quote.authorName }}</p>
-                    <button * ngIf="quote.votes" class="btn btn-primary" (click)="voteIncrement(i)">
-            UPVOTE {{ quote.votes }}
+                    <!-- <p>{{ quote.votes }}</p> -->
+                    <button class="btn btn-primary" (click)="voteIncrement(i)">
+            UPVOTE
           </button>
-
                     <button (click)="toggleDetails(i)" class="btn btn-primary">
             More Details
           </button>
                 </div>
+                <button class="btn btn-primary" (click)="voteIncrement(i)">
+          {{ quote.upVotes }} UPVOTE
+        </button>
             </ng-template>
+
             <ng-template #empty>
                 <div class="msg shadow">
                     <p>{{ quote.message }} ~ {{ quote.authorName }}</p>
-                    <button class="btn btn-primary" (click)="voteIncrement(i)">
-            UPVOTE
-          </button>
 
+                    <button class="btn btn-primary" (click)="voteIncrement(i)">
+            {{ quote.upVotes }} UPVOTE
+          </button>
+                    <button class="btn btn-primary" (click)="voteDecrement(i)">
+            {{ quote.downVotes }} DOWNVOTE
+          </button>
                     <button (click)="toggleDetails(i)" class="btn btn-primary">
             More Details
           </button>

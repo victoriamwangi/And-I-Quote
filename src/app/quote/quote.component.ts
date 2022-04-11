@@ -9,9 +9,9 @@ import { Quote } from '../quote';
 export class QuoteComponent implements OnInit {
 public quote: any;
 quotes: Quote[] = [
-  new Quote(1,"Vicky", "Steve Jobs", "Your time is limited, so don’t waste it living someone else’s life. Don’t be trapped by dogma – which is living with the results of other people’s thinking.", new Date(2022,4,10), 0),
-  new Quote(2, "NJeri", "Thomas A. Edison", "Many of lif’s failures are people who did not realize how close they were to success when they gave up.",new Date(2022,4,9), 0 ),
-  new Quote(3, "Morris", "Anonymous", "Sing like no one’s listening, love like you’ve never been hurt, dance like nobody’s watching, and live like it’s heaven on earth.",  new Date(2022,4,10), 0)
+  new Quote(1,"Vicky", "Steve Jobs", "Your time is limited, so don’t waste it living someone else’s life. Don’t be trapped by dogma – which is living with the results of other people’s thinking.", new Date(2022,4,10)),
+  new Quote(2, "NJeri", "Thomas A. Edison", "Many of lif’s failures are people who did not realize how close they were to success when they gave up.",new Date(2022,4,9)),
+  new Quote(3, "Morris", "Anonymous", "Sing like no one’s listening, love like you’ve never been hurt, dance like nobody’s watching, and live like it’s heaven on earth.",  new Date(2022,4,10))
 ]
 
 toggleDetails(index: number){
@@ -20,11 +20,11 @@ toggleDetails(index: number){
 
 voteIncrement(index: number){
 
-return this.quotes[index].votes+=1;
+return this.quotes[index].upVotes+=1;
 
 };
-voteDecrement(votes: number){
-  return votes--;
+voteDecrement(index: number){
+  return this.quotes[index].downVotes -=1;
 }
 
 
@@ -50,7 +50,7 @@ deleteQuote(isComplete: any, index: number){
 }
 
 
-arr: number[] = this.quotes.map(quote =>quote.votes)
+arr: number[] = this.quotes.map(quote =>quote.upVotes)
 highest = Math.max(...this.arr);
 
 
