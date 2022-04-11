@@ -1,12 +1,11 @@
 <div class="row">
-    <div class="col-lg-8 col-md-7 colQuotes">
+    <div class="col-lg-8 col-md-7">
         <div class="quote-container" *ngFor="let quote of quotes; let i = index">
             <div *ngIf="
           quote.upVotes == highest && quote.upVotes > 0;
           then highlight;
           else empty
         "></div>
-
             <ng-template #highlight>
                 <div appHighlight class="msg shadow">
                     <p>{{ quote.message }} ~ {{ quote.authorName }}</p>
@@ -15,7 +14,7 @@
               UPVOTE
             </button>
                         <button class="btn btn-primary" (click)="voteDecrement(i)">
-              {{ quote.upVotes }} UPVOTE
+              {{ quote.upVotes }} DOWNVOTE
             </button>
                     </div>
 

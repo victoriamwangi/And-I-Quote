@@ -9,4 +9,5 @@ textarea {
 .btn {
     width: 100%;
     background-color: var(--primary);
+    border: none;
 }
