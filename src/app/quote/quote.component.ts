@@ -17,6 +17,20 @@ quotes: Quote[] = [
 toggleDetails(index: number){
   this.quotes[index].showName = !this.quotes[index].showName;
 }
+
+voteIncrement(index: number){
+
+return this.quotes[index].votes+=1;
+
+};
+voteDecrement(votes: number){
+  return votes--;
+}
+
+
+
+
+
 addNewQuote(quote: Quote){
   let quoteLength = this.quotes.length;
   quote.id = quoteLength + 1;
@@ -34,13 +48,7 @@ deleteQuote(isComplete: any, index: number){
   }
 
 }
-// voteIncrement(upVotes: number){
-// this.quotes[index].votes += 1;
-//   alert("tf");
-// };
-// voteDecrement(votes: number){
-//   return votes--;
-// }
+
 
 arr: number[] = this.quotes.map(quote =>quote.votes)
 highest = Math.max(...this.arr);

@@ -6,9 +6,14 @@
           then highlight;
           else empty
         "></div>
+            <p>{{ quote.votes }}</p>
+
             <ng-template #highlight>
                 <div appHighlight class="msg shadow">
                     <p>{{ quote.message }} ~ {{ quote.authorName }}</p>
+                    <button * ngIf="quote.votes" class="btn btn-primary" (click)="voteIncrement(i)">
+            UPVOTE {{ quote.votes }}
+          </button>
 
                     <button (click)="toggleDetails(i)" class="btn btn-primary">
             More Details
@@ -18,6 +23,9 @@
             <ng-template #empty>
                 <div class="msg shadow">
                     <p>{{ quote.message }} ~ {{ quote.authorName }}</p>
+                    <button class="btn btn-primary" (click)="voteIncrement(i)">
+            UPVOTE
+          </button>
 
                     <button (click)="toggleDetails(i)" class="btn btn-primary">
             More Details
