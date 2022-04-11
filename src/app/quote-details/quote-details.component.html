@@ -1,2 +1,3 @@
 <p>Posted by: {{ quote.name }}</p>
+<p>Posted {{ quote.fullDate | timeCount | number: "1.0-1" }} ago</p>
 <button (click)="goalDelete(true)" class="btn btn-danger">DELETE</button>
