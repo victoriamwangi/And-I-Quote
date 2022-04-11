@@ -30,10 +30,10 @@
                     <p>{{ quote.message }} ~ {{ quote.authorName }}</p>
                     <div class="btnsVote">
                         <button class="btn btn-primary upvote" (click)="voteIncrement(i)">
-              UPVOTE
+              {{ quote.upVotes }}UPVOTE
             </button>
                         <button class="btn btn-primary downvote" (click)="voteDecrement(i)">
-              {{ quote.upVotes }} UPVOTE
+              {{ quote.downVotes }}DOWNVOTE
             </button>
                     </div>
 

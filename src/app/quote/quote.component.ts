@@ -24,7 +24,7 @@ return this.quotes[index].upVotes+=1;
 
 };
 voteDecrement(index: number){
-  return this.quotes[index].downVotes -=1;
+  this.quotes[index].downVotes -=1;
 }
 
 

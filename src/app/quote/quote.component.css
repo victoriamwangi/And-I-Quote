@@ -5,10 +5,15 @@
 
 } */
 
+body {
+    overflow-x: none !important;
+}
+
 .msg {
     /* height: 7vw; */
     margin-top: 3vw;
     padding: 1vw;
+    align-items: center;
 }
 
 .q-name,
@@ -30,8 +35,8 @@
 }
 
 .more {
-    background-color: #f547c1;
-    color: #47dbf5;
-    border: none;
+    background-color: transparent;
+    color: #000;
+    border: solid 1px;
     margin-top: 2vw;
 }
