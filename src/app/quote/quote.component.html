@@ -5,39 +5,39 @@
           quote.upVotes == highest && quote.upVotes > 0;
           then highlight;
           else empty
-        ">
-                <button * ngIf="quote.votes" class="btn btn-primary" (click)="voteIncrement(i)">
-          UPVOTE
-        </button>
-            </div>
+        "></div>
 
             <ng-template #highlight>
                 <div appHighlight class="msg shadow">
                     <p>{{ quote.message }} ~ {{ quote.authorName }}</p>
-                    <!-- <p>{{ quote.votes }}</p> -->
-                    <button class="btn btn-primary" (click)="voteIncrement(i)">
-            UPVOTE
-          </button>
+                    <div class="btnsVote">
+                        <button class="btn btn-primary" (click)="voteIncrement(i)">
+              UPVOTE
+            </button>
+                        <button class="btn btn-primary" (click)="voteDecrement(i)">
+              {{ quote.upVotes }} UPVOTE
+            </button>
+                    </div>
+
                     <button (click)="toggleDetails(i)" class="btn btn-primary">
             More Details
           </button>
                 </div>
-                <button class="btn btn-primary" (click)="voteIncrement(i)">
-          {{ quote.upVotes }} UPVOTE
-        </button>
             </ng-template>
 
             <ng-template #empty>
                 <div class="msg shadow">
                     <p>{{ quote.message }} ~ {{ quote.authorName }}</p>
+                    <div class="btnsVote">
+                        <button class="btn btn-primary upvote" (click)="voteIncrement(i)">
+              UPVOTE
+            </button>
+                        <button class="btn btn-primary downvote" (click)="voteDecrement(i)">
+              {{ quote.upVotes }} UPVOTE
+            </button>
+                    </div>
 
-                    <button class="btn btn-primary" (click)="voteIncrement(i)">
-            {{ quote.upVotes }} UPVOTE
-          </button>
-                    <button class="btn btn-primary" (click)="voteDecrement(i)">
-            {{ quote.downVotes }} DOWNVOTE
-          </button>
-                    <button (click)="toggleDetails(i)" class="btn btn-primary">
+                    <button (click)="toggleDetails(i)" class="btn btn-primary more">
             More Details
           </button>
                 </div>

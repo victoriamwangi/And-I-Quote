@@ -15,3 +15,23 @@
 .q-date {
     color: var(--secondary);
 }
+
+.btnsVote .upvote {
+    background: transparent;
+    border: #f547c1 solid 1px;
+    color: #f547c1;
+    margin-right: 4vw;
+}
+
+.btnsVote .downvote {
+    background: transparent;
+    border: #47dbf5 solid 1px;
+    color: #47dbf5;
+}
+
+.more {
+    background-color: #f547c1;
+    color: #47dbf5;
+    border: none;
+    margin-top: 2vw;
+}
